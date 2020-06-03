@@ -1,0 +1,23 @@
+[package]
+name = "binary_size_comparison"
+version = "0.1.0"
+authors = ["g2xpf <nameko.jack@gmail.com>"]
+edition = "2018"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "std"
+path = "src/std.rs"
+
+[dependencies]
+libc = "0.2"
+
+[profile.release]
+opt-level = "z"
+lto = true
+
+# Adding this options has increased
+# the size of the binary by 152 bytes (???)
+# panic = "abort"
